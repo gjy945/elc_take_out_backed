@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.mapper.RestaurantMapper">
+
+    <resultMap id="BaseResultMap" type="com.example.pojo.Restaurant">
+        <id property="id" column="id" jdbcType="INTEGER"/>
+        <result property="name" column="name" jdbcType="VARCHAR"/>
+        <result property="address" column="address" jdbcType="VARCHAR"/>
+        <result property="contactPhone" column="contact_phone" jdbcType="VARCHAR"/>
+        <result property="description" column="description" jdbcType="VARCHAR"/>
+        <result property="openingHours" column="opening_hours" jdbcType="VARCHAR"/>
+        <result property="status" column="status" jdbcType="INTEGER"/>
+        <result property="approvalStatus" column="approval_status" jdbcType="INTEGER"/>
+        <result property="website" column="website" jdbcType="VARCHAR"/>
+        <result property="createTime" column="create_time" jdbcType="TIMESTAMP"/>
+        <result property="updateTime" column="update_time" jdbcType="TIMESTAMP"/>
+        <result property="version" column="version" jdbcType="INTEGER"/>
+        <result property="imageUrl" column="image_url" jdbcType="VARCHAR"/>
+        <result property="deleted" column="deleted" jdbcType="TINYINT"/>
+        <result property="contactName" column="contact_name" jdbcType="VARCHAR"/>
+        <result property="email" column="email" jdbcType="VARCHAR"/>
+        <result property="rating" column="rating" jdbcType="DOUBLE"/>
+        <result property="deliveryFees" column="delivery_fees" jdbcType="DOUBLE"/>
+        <result property="restaurantCategoryId" column="restaurant_category_id" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,name,address,
+        contact_phone,description,opening_hours,
+        status,approval_status,website,
+        create_time,update_time,version,
+        image_url,deleted,contact_name,
+        email,rating,delivery_fees,restaurant_category_id
+    </sql>
+
+    <!--根据id查询Restaurant-->
+    <select id="selectByRestaurantId" resultType="com.example.pojo.Restaurant">
+        select
+        <include refid="Base_Column_List"/>
+        from restaurant
+        where id = #{restaurantId}
+    </select>
+</mapper>

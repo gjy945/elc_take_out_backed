@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.mapper.ReviewcommentsMapper">
+
+    <resultMap id="BaseResultMap" type="com.example.pojo.Reviewcomments">
+            <id property="id" column="id" jdbcType="INTEGER"/>
+            <result property="userid" column="userId" jdbcType="INTEGER"/>
+            <result property="restaurantid" column="restaurantId" jdbcType="INTEGER"/>
+            <result property="rating" column="Rating" jdbcType="TINYINT"/>
+            <result property="commentcontent" column="CommentContent" jdbcType="VARCHAR"/>
+            <result property="commenttime" column="CommentTime" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,userId,restaurantId,
+        Rating,CommentContent,CommentTime
+    </sql>
+</mapper>

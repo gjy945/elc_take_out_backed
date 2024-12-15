@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.mapper.DishMapper">
+
+    <resultMap id="BaseResultMap" type="com.example.pojo.Dish">
+        <id property="id" column="id" jdbcType="INTEGER"/>
+        <result property="restaurantId" column="restaurant_id" jdbcType="INTEGER"/>
+        <result property="categoryId" column="category_id" jdbcType="INTEGER"/>
+        <result property="name" column="name" jdbcType="VARCHAR"/>
+        <result property="price" column="price" jdbcType="DECIMAL"/>
+        <result property="unit" column="unit" jdbcType="VARCHAR"/>
+        <result property="description" column="description" jdbcType="VARCHAR"/>
+        <result property="imageUrl" column="image_url" jdbcType="VARCHAR"/>
+        <result property="isAvailable" column="is_available" jdbcType="TINYINT"/>
+        <result property="createTime" column="create_time" jdbcType="TIMESTAMP"/>
+        <result property="updateTime" column="update_time" jdbcType="TIMESTAMP"/>
+        <result property="version" column="version" jdbcType="INTEGER"/>
+        <result property="deleted" column="deleted" jdbcType="TINYINT"/>
+        <result property="quantity" column="quantity" javaType="Integer"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,restaurant_id,category_id,name,
+        price,unit,description,image_url,
+        is_available,create_time,update_time,
+        version,deleted,quantity
+    </sql>
+
+    <!--根据restaurantId查询菜品列表-->
+    <select id="selectByRestaurantId" resultType="com.example.pojo.Dish">
+        select
+        <include refid="Base_Column_List"/>
+        from dish
+        where restaurant_id = #{restaurantId}
+    </select>
+</mapper>

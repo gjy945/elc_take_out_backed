@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.mapper.OrderdetailMapper">
+
+    <resultMap id="BaseResultMap" type="com.example.pojo.Orderdetail">
+            <id property="id" column="id" jdbcType="INTEGER"/>
+            <result property="orderId" column="order_id" jdbcType="INTEGER"/>
+            <result property="dishId" column="dish_id" jdbcType="INTEGER"/>
+            <result property="dishName" column="dish_name" jdbcType="VARCHAR"/>
+            <result property="restaurantId" column="restaurant_id" jdbcType="INTEGER"/>
+            <result property="quantity" column="quantity" jdbcType="INTEGER"/>
+            <result property="unitPrice" column="unit_price" jdbcType="DECIMAL"/>
+            <result property="subTotal" column="sub_total" jdbcType="DECIMAL"/>
+            <result property="imageUrl" column="image_url" jdbcType="VARCHAR"/>
+            <result property="createTime" column="create_time" jdbcType="TIMESTAMP"/>
+            <result property="updateTime" column="update_time" jdbcType="TIMESTAMP"/>
+            <result property="version" column="version" jdbcType="INTEGER"/>
+            <result property="deleted" column="deleted" jdbcType="TINYINT"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,order_id,dish_id,dish_name,
+        restaurant_id,quantity,unit_price,
+        sub_total,image_url,create_time,
+        update_time,version,deleted
+    </sql>
+</mapper>
